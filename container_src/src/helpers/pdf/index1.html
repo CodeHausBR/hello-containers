@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template A4 para Puppeteer</title>
+    <style>
+        @page {
+            size: 'A4';
+            margin: 0;
+            
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 49px 0 0 0;
+            padding: 0;
+            width: '100%';
+            height: 297mm;
+            align-items: center;
+            background-color: #333;
+            
+        }
+        .page {
+            width: 196mm;
+            min-height: 297mm;
+            padding: 30px 30px 30px 25px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+        }
+        h3 {
+                            color: #107ece;
+                            margin-bottom: 0;
+                        }
+                        p {
+                            color: #444;
+                            text-align: justify;
+                            text-justify: inter-word;
+                            line-height: 1.2;
+                            margin-top: 0.5em;
+                            font-size: 12.5px;
+                        }
+                        img {
+                            width: 280px;
+                            height: 100px;
+                            top: -20px;
+                        }
+                        .imgAss {
+                            object-fit: cover;
+                            text-align: center;
+                            margin-left: 45px;                        
+                            margin-top: -12px; 
+                            width: 200px;
+                            height: 80px;
+                        }
+
+
+                        hr {
+                            border: none;
+                            border-top: 1.1px solid #444;
+                        }
+                        .container {
+                            display: flex;
+                            justify-content: space-between;
+                            color: #ccc;
+                        }
+                        .container3 {
+                            display: flex;
+                            justify-content: flex-start;
+                            align-itens: center;
+                            width: 100%;
+                            height: 400px;
+                        }
+                        .containerAssinatura {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-itens: center;
+                            height: 200px;
+                            width: 100%;
+                            margin-top: 150px;
+                        }
+                        .divcnpj {
+                            display: flex;
+                            flex-direction: column;
+                            margin-top: -20px;
+                            border-top: 2px solid #000;
+                            text-align: left;
+                            vertical-align: top;
+                            width: 260px;
+                            
+                        }
+                        .ondaassinatura .testemunhasAssinaturas {
+                            position: relative;
+                        }
+
+                        .ondaassinatura {
+                            margin-top: 20px;
+                            margin-left: 40px;
+                        }
+
+                        .divlocatarios, .divtestemunhas {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-around;
+                            width: 100%;
+                        }
+
+                        .testemunhasAssinaturas{
+                            display: flex;
+                            flex-direction: column;
+                        }
+
+                        imgOndaAssinatura {
+                            position: absolute;
+                            object-fit: cover;
+                            text-align: center;
+                            margin-left: 45px;                        
+                            margin-top: -12px; 
+                            width: 200px;
+                            height: 80px;
+                            bottom: -25px;
+                        }
+
+                        imgTestemunha {
+                            width: 160px;
+                            height: 60px;
+                            margin-top: 0px;
+                            object-fit: cover;
+                            text-align: center;
+                            margin-left: 45px;    
+                            position: absolute;                    
+                        }
+
+                        .container2 {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            bottom: 0;
+                        }
+                        .item {
+                            display: flex;
+                            flex-direction: row;
+                            color: #ccc;
+                            line-height: 1.5;
+                            font-size: 10px;
+                            margin-right: 4px;
+                        }
+                        .item2 {
+                            display: flex;
+                            flex-direction: column;
+                            color: #ccc;
+                            line-height: 1.5;
+                            font-size: 10px;
+                            margin-right: 4px;
+                        }
+                        .txtnegrito {
+                            text-decoration: underline; 
+                            font-weight: bold; 
+                            margin-bottom: 2;
+                            text-align: justify;
+                            text-justify: inter-word;
+                            line-height: 1.2;
+                        }
+                        p.no-space-below {
+                            margin-bottom: 0;
+                        }
+                        p.no-space-above {
+                            margin-top: 0;
+                        
+                        }
+                        .titleCf {
+                            font-size: 16px;
+                            font-weight: bold; 
+                            color: #ccc;
+                        }
+                        .titleCfH1 {
+                            font-size: 16px;
+                            font-weight: bold; 
+                            color: #107ece;
+                        }
+                        .marginRigth {
+                            margin-right: 5px;
+                        }
+                        h6 {
+                            line-height: 1;
+                            text-align: left;
+                            vertical-align: top;
+                            margin-top: 3px;
+                          }
+                        table {
+                            width: 50%;
+                            border-collapse: collapse;
+                            margin: 20px auto;
+                        }
+    
+                        table, th, td {
+                            border: 1px solid black;
+                        }
+    
+                        th, td {
+                            padding: 3px;
+                            text-align: center;
+                        }
+    
+                        th {
+                            background-color: #f2f2f2;
+                            font-size: 10px;
+                        }
+                        
+                        td {
+                            font-size: 10px;
+                        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+            <div class="container2">
+                <img src="https://lh3.googleusercontent.com/pw/ADCreHd3qtDe-qQXYw4N7lGyvA-FbW4XNLzHjnsNaRhfiK6y7ydzx8U0jtb7WZD02y7L_oTpgIjKUElNXoSoxGepaOngoEanjBpavfcvnEXN7Rg6i2Q37kWVE5fabm-1n_ppSSJUF8GjV64-SRXxA9O1iUqg=w370-h140-s-no">
+                <div style="display: flex; flex-direction: row">
+                  <p class="titleCfH1">
+                    TERMO DE QUITAÇÃO DE DÉBITO
+                  </p>
+                </div>
+              </div>
+              
+              <p>
+                Pelo presente instrumento particular de quitação de débitos, a empresa <b>LATIN AMERICA INV SERVICE LTDA</b>, com nome fantasia <b>Onda Segura</b>, pessoa jurídica de direito privado, inscrita no CNPJ/MF sob o nº 34.637.270/0001-20, com endereço na Av. João Sacavém, 571, Centro, Navegantes, Santa Catarina, doravante denominada "Credora", declara, que recebeu, na data de 12/02/2023, o valor de <b>R$ 1.000,00</b> (um mil reais) do(a) locatário(a) <b>JOSÉ SILVA</b>, inscrito(a) no CPF/CNPJ sob o nº 123.456.789-00, doravante denominado(a) "Locatário(a)".
+              </p>
+              
+              <p>
+                A Credora reconhece que o pagamento efetuado pelo(a) Locatário(a) se refere à quitação de todos os débitos pendentes relacionados aos sinistros ocasionados durante vigência de seu contrato de locação e contrato de garantia fiança locatícia, celebrados entre as partes, não havendo mais valores em aberto a serem cobrados.
+              </p>
+              
+              <p>
+                As partes declaram, de comum acordo, que o presente termo de quitação é firmado de boa-fé e em conformidade com a legislação aplicável, extinguindo qualquer obrigação pecuniária pendente entre as partes relacionada aos referidos contratos.
+              </p>
+              
+              <div class="container3">
+                <div class="containerAssinatura">
+                  <p style="margin-left: 5px">
+                    Navegantes, 12 de fevereiro de 2023
+                  </p>
+                  <img class="imgAss" src="https://lh3.googleusercontent.com/pw/AP1GczNcfSiFRyG6YiaIT1ybnSL0PQsvLkdhw--FWiNbPJDAysm6AwBBG6K_WDeLelK_DWUWWrcXRxGb6A0ieTCx5T-zDIzVFZgCd5Qd_fFyu5ARIeJV-p2b_V43fgCme2JtohuExnCZISOkvaLRoEOmn1he=w732-h341-s-no-gm">
+                  <div class="divcnpj">
+                    <hr>
+                    <h6>
+                      <strong>
+                        ONDA SEGURA </br>
+                        CNPJ: 34.637.270/0001-20
+                      </strong>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+          
+    </div>
+
+    <script>
+        // Se necessário, você pode adicionar JavaScript aqui
+    </script>
+</body>
+</html>

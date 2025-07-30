@@ -1,0 +1,18 @@
+node_modules
+.env
+*.env.producao
+
+*.env.sandbox
+
+*.env.localhost
+.env.localhost.producao
+
+# Mantém as pastas mas ignora seu conteúdo
+/public/documentos/*
+/public/imagens/*
+
+# Garante que as pastas vazias sejam mantidas
+!/public/documentos/.gitkeep
+!/public/imagens/.gitkeep
+
+!public/documentos/pdf-assinatura-anexo1-2025.pdf

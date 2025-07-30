@@ -1,34 +1,42 @@
 {
-  "name": "hello-containers",
-  "description": "Build a Container-enabled Worker",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "deploy": "wrangler deploy",
-    "dev": "wrangler dev",
-    "start": "wrangler dev",
-    "cf-typegen": "wrangler types"
-  },
-  "devDependencies": {
-    "typescript": "5.8.3",
-    "wrangler": "^4.25.0"
-  },
-  "dependencies": {
-    "@cloudflare/containers": "^0.0.19",
-    "hono": "4.8.2"
-  },
-  "cloudflare": {
-    "label": "Containers Starter",
-    "products": [
-      "Workers",
-      "Durable Objects",
-      "Containers"
-    ],
-    "categories": [],
-    "docs_url": "https://developers.cloudflare.com/containers/",
-    "preview_image_url": "https://imagedelivery.net/_yJ02hpOMj_EnGvsU2aygw/5aba1fb7-b937-46fd-fa67-138221082200/public",
-    "icon_urls": [
-      "https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/5ca0ca32-e897-4699-d4c1-6b680512f000/public"
-    ]
-  }
+    "name": "backend-wave",
+    "version": "1.17.5",
+    "description": "Backend Wave para Cloudflare Container",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^1.7.9",
+        "bcrypt": "^5.1.0",
+        "bignumber.js": "^9.1.2",
+        "cors": "^2.8.5",
+        "cron": "^2.4.4",
+        "express": "^4.18.2",
+        "express-ws": "^5.0.2",
+        "extenso": "^2.0.1",
+        "ioredis": "^5.6.1",
+        "jsbarcode": "^3.11.6",
+        "jsonwebtoken": "^9.0.0",
+        "mongoose": "^8.5.2",
+        "multer": "^1.4.5-lts.1",
+        "mysql2": "^3.2.0",
+        "nodemailer": "^6.8.0",
+        "onda-types": "github:ondasegura/onda-types",
+        "pdf-lib": "^1.17.1",
+        "puppeteer": "^21.6.0",
+        "sequelize": "^6.35.2",
+        "uuid": "^10.0.0",
+        "whatsapp": "^0.0.5-Alpha",
+        "ws": "^8.16.0",
+        "yup": "^0.32.11"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.0"
+    }
 }

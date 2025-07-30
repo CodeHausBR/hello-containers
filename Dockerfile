@@ -1,23 +1,27 @@
 # syntax=docker/dockerfile:1
 
-FROM golang:1.24-alpine AS build
+FROM node:18-alpine AS build
 
 # Set destination for COPY
 WORKDIR /app
 
-# Download any Go modules
-COPY container_src/go.mod ./
-RUN go mod download
+# Copy package files
+COPY container_src/package*.json ./
 
-# Copy container source code
-COPY container_src/*.go ./
+# Install dependencies
+RUN npm ci --only=production
 
-# Build
-RUN CGO_ENABLED=0 GOOS=linux go build -o /server
+# Copy all source code
+COPY container_src/ ./
 
-FROM scratch
-COPY --from=build /server /server
+# Create public directory if it doesn't exist
+RUN mkdir -p public
+
+# Expose the port the app runs on
 EXPOSE 8080
 
-# Run
-CMD ["/server"]
+# Set NODE_ENV to production
+ENV NODE_ENV=production
+
+# Run the application
+CMD ["node", "index.js"]
