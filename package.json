@@ -1,6 +1,6 @@
 {
     "name": "backend-wave",
-    "version": "1.18.0",
+    "version": "1.19.0",
     "description": "Backend Wave para Cloudflare Container",
     "main": "index.js",
     "type": "module",
