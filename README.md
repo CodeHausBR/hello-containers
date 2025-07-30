@@ -1,59 +1,70 @@
-# Containers Starter
+# PADRÕES DE COMMIT UTILIZADOS NO PROJETO
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/containers-template)
+🎉 start: Inicial  
+📚 docs: Atualiza README  
+🐛 fix: Corrige loop na 50  
+✨ feat: Adiciona login  
+💄 feat: Estiliza formulário  
+🧱 ci: Modifica Dockerfile  
+♻️ refactor: Refatora para arrow functions  
+⚡ perf: Melhora resposta  
+💥 fix: Reverte mudanças  
+🧪 test: Adiciona teste  
+💡 docs: Comenta função  
+🗃️ raw: Adiciona dados RAW  
+🧹 cleanup: Limpa validação  
+🗑️ remove: Remove arquivos inúteis
 
-![Containers Template Preview](https://imagedelivery.net/_yJ02hpOMj_EnGvsU2aygw/5aba1fb7-b937-46fd-fa67-138221082200/public)
+# COMMITS NO GIT HUB
 
-<!-- dash-content-start -->
+bunx npm version minor --no-git-tag-version --no-git-checks
+git init
+git add .
+git commit -m "✨ feat: "
+git push -u origin producao
 
-This is a [Container](https://developers.cloudflare.com/containers/) starter template.
+# COMANDOS DO WRANGLER:
 
-It demonstrates basic Container coniguration, launching and routing to individual container, load balancing over multiple container, running basic hooks on container status changes.
+npx wrangler d1 execute backend-assinatura --file=./schema.sql --local
 
-<!-- dash-content-end -->
+npx wrangler d1 execute backend-assinatura --file=./schema.sql --remote
 
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
+wrangler logout
 
-```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/containers-template
+wrangler login
+
+# PADRÃO DO CRUD NAS CONTROLLERS E MODELS
+
+```plaintext
+POST::  criar
+GET::   buscar_pelo_filtro
+GET::   buscar_pelo_id
+PATCH:: atualizar_pelo_id
+DELETE:: deletar_pelo_id
 ```
 
-## Getting Started
+### DESCOBRIR O IP DA PESSOA
 
-First, run:
+https://cloudflare.com/cdn-cgi/trace
 
-```bash
-npm install
-# or
-yarn install
-# or
-pnpm install
-# or
-bun install
-```
+# Versionamento semântico (SemVer): Use o padrão X.Y.Z (Major.Minor.Patch)
 
-Then run the development server (using the package manager of your choice):
+X (Major): Primeiro número - aumentado quando ocorrem mudanças incompatíveis com versões anteriores (breaking changes)
+Y (Minor): Número do meio - aumentado quando adicionados novos recursos compatíveis com versões anteriores
+Z (Patch): Último número - aumentado para correções de bugs e pequenos ajustes que não alteram a funcionalidade existente
 
-```bash
-npm run dev
-```
+# START PROJETO
 
-Open [http://localhost:8787](http://localhost:8787) with your browser to see the result.
+"start": "npm run build:worker && concurrently \"npm run dev:frontend\" \"npm run dev:worker\"",
 
-You can start editing your Worker by modifying `src/index.ts` and you can start
-editing your Container by editing the content of `container_src`.
+# ENV DO FRONT-END
 
-## Deploying To Production
+#BASE URL:
+PUBLIC_BASE_URL_FRONTEND=http://127.0.0.1:8787
+PUBLIC_BASE_URL_BACKEND=http://127.0.0.1:8787
+PUBLIC_BASE_URL_BUCKET=http://127.0.0.1:8787
 
-| Command          | Action                                |
-| :--------------- | :------------------------------------ |
-| `npm run deploy` | Deploy your application to Cloudflare |
+PUBLIC_NODE_ENV=localhost
 
-## Learn More
-
-To learn more about Containers, take a look at the following resources:
-
-- [Container Documentation](https://developers.cloudflare.com/containers/) - learn about Containers
-- [Container Class](https://github.com/cloudflare/containers) - learn about the Container helper class
-
-Your feedback and contributions are welcome!
+PUBLIC_PUSHER_APP_KEY=c2d55ac16d409c9cfee3
+PUBLIC_PUSHER_APP_CLUSTER=sa1+
